@@ -1,0 +1,13 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  --color-mukraf: #1e3a5f;
+}
+
+html {
+  /* Mengaktifkan gulir halus secara global */
+  scroll-behavior: smooth !important;
+  /* Memberikan jarak agar tidak tertutup Navbar (sesuaikan 80px dengan tinggi navbar Anda) */
+  scroll-padding-top: 80px;
+}
