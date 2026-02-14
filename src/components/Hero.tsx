@@ -9,20 +9,34 @@ export default function Hero() {
   const bgImage = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop";
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-      {/* Background Image Layer */}
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden"
+      style={{
+        backgroundImage: `url('${bgImage}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Filter Blur Layer */}
       <div 
-        className="absolute inset-0 z-0 scale-110"
+        className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url('${bgImage}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          // Brightness diatur ke 0.9 (hanya sedikit redup) dan Blur 8px agar estetik
-          filter: 'blur(8px) brightness(0.9)', 
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+        }}
+      />
+      
+      {/* Brightness Overlay */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
         }}
       />
 
-      {/* Overlay Layer Putih Transparan (Agar Menu Navy Tetap Terlihat Jelas) */}
+      {/* Overlay Layer Putih Transparan */}
       <div className="absolute inset-0 z-10 bg-white/40" />
 
       {/* Content Layer */}
