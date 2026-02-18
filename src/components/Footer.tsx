@@ -54,7 +54,7 @@ export default function Footer() {
                 { name: "Tentang Kami", slug: "profile" },
                 { name: "Product", slug: "products" },
                 { name: "Artikel", slug: "articles" },
-                { name: "Team", slug: "member" },
+                
               ].map((item) => (
                 <li key={item.name}>
                   <Link 
