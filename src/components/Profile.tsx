@@ -7,7 +7,7 @@ export default function Profile() {
   const IMG_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
 
   return (
-    <section id="profile" className="py-32 bg-gradient-to-br from-white via-slate-50 to-cyan-50/30 relative overflow-hidden">
+    <section id="profile" className="py-20 bg-gradient-to-br from-white via-slate-50 to-cyan-50/30 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-20 -left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
