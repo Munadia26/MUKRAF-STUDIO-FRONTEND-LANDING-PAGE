@@ -3,7 +3,7 @@ import React from "react";
 import { ArrowRight, Star, ShieldCheck, Zap } from "lucide-react";
 
 export default function SectionDivider() {
-  const whatsappNumber = "6285786675395";
+  const whatsappNumber = "628157642627";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo, saya ingin tanya jasa pembuatan website.")}`;
 
   return (

@@ -141,7 +141,7 @@ export default function OrderingProcess() {
         {/* CTA Section */}
         <div className="mt-20 text-center">
           <a
-            href="https://wa.me/6285786675395"
+            href="https://wa.me/628157642627"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl font-black uppercase tracking-wider shadow-xl hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105"
