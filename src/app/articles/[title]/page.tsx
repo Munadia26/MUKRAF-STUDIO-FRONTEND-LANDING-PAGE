@@ -18,12 +18,8 @@ const createSlug = (text: string) => {
 
 function sanitizeQuillHtml(html: string): string {
   if (!html) return "";
-  return html
-    .replace(/class="([^"]*?)ql-align-justify([^"]*?)"/g, (_, before, after) => {
-      const remaining = (before + after).trim();
-      return remaining ? `class="${remaining}"` : "";
-    })
-    .replace(/text-align:\s*justify;?/gi, "");
+  // Biarkan semua alignment dan class dari Quill tetap ada
+  return html;
 }
 
 export default function ArticleDetailPage() {
@@ -63,7 +59,6 @@ export default function ArticleDetailPage() {
       <main className="bg-white min-h-screen">
 
         {/* ================= HERO ================= */}
-         {/* ================= HERO ================= */}
         <section className="relative pt-48 pb-16 px-6 md:px-10 bg-[#0a1628] overflow-hidden">
 
           {/* Decorative glow circles */}
@@ -149,12 +144,13 @@ export default function ArticleDetailPage() {
           </div>
         </section>
 
+
         {/* ================= CONTENT ================= */}
         <section className="pb-24 px-6 md:px-10 pt-14">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-16 items-start">
 
             {/* ===== MAIN CONTENT ===== */}
-            <div className="w-full max-w-full overflow-hidden">
+            <div className="w-full min-w-0">
 
               {/* IMAGE CARD */}
               <div className="w-full overflow-hidden rounded-[2.5rem] shadow-2xl border border-gray-100 bg-gray-50 mb-12">
@@ -166,17 +162,81 @@ export default function ArticleDetailPage() {
               </div>
 
               {/* TEXT CONTENT */}
-              <div className="w-full max-w-full overflow-hidden">
-                <div
-                  className="
-                    max-w-full
-                    text-justify
-                    break-normal
-                    whitespace-normal
-                  "
-                >
+              <style>{`
+                /* Alignment dari admin */
+                .ql-align-center  { text-align: center; }
+                .ql-align-right   { text-align: right; }
+                .ql-align-justify { text-align: justify; }
+                .ql-align-left    { text-align: left; }
+
+                /* Word wrap - kata tidak terpotong */
+                .article-body {
+                  width: 100%;
+                  max-width: 100%;
+                  overflow: hidden;
+                  box-sizing: border-box;
+                  overflow-wrap: break-word;
+                  word-break: normal;
+                  word-wrap: break-word;
+                }
+                .article-body p,
+                .article-body li,
+                .article-body h1,
+                .article-body h2,
+                .article-body h3,
+                .article-body h4,
+                .article-body span,
+                .article-body td {
+                  overflow-wrap: break-word;
+                  word-break: normal;
+                  word-wrap: break-word;
+                  max-width: 100%;
+                  box-sizing: border-box;
+                }
+                .article-body a {
+                  overflow-wrap: anywhere;
+                  word-break: break-all;
+                }
+
+                /* Gambar dari editor Quill - tampil penuh */
+                .article-body img {
+                  max-width: 100% !important;
+                  width: auto;
+                  height: auto;
+                  display: block;
+                  margin: 1.25rem auto;
+                  border-radius: 0.5rem;
+                }
+                .article-body video,
+                .article-body iframe {
+                  max-width: 100% !important;
+                  width: 100%;
+                  height: auto;
+                  aspect-ratio: 16 / 9;
+                  display: block;
+                  margin: 1.25rem auto;
+                  border-radius: 0.5rem;
+                }
+
+                /* Code block */
+                .article-body pre,
+                .article-body code {
+                  white-space: pre-wrap;
+                  overflow-x: hidden;
+                  overflow-wrap: break-word;
+                  word-break: normal;
+                }
+
+                /* Quill indent */
+                .article-body .ql-indent-1 { padding-left: 1.5rem; }
+                .article-body .ql-indent-2 { padding-left: 3rem; }
+                .article-body .ql-indent-3 { padding-left: 4.5rem; }
+              `}</style>
+              <div className="w-full min-w-0 overflow-hidden">
+                <div className="max-w-full">
                   <div
                     className="
+                      article-body
                       [&_ol]:list-decimal
                       [&_ol]:pl-6
                       [&_ol]:my-6
@@ -220,8 +280,10 @@ export default function ArticleDetailPage() {
             </div>
 
             {/* ===== SIDEBAR ===== */}
-            <aside className="w-full">
-              <ArticleSidebar activeTitle={article.title} />
+            <aside className="w-full min-w-0">
+              <div className="sticky top-28 max-h-[calc(100vh-7rem)] overflow-y-auto">
+                <ArticleSidebar activeTitle={article.title} />
+              </div>
             </aside>
 
           </div>
