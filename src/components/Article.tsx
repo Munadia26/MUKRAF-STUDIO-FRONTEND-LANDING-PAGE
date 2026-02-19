@@ -13,7 +13,11 @@ export default function ArticleSection() {
   if (isLoading) return null;
 
   const goToArticleDetail = (title: string) => {
-    const formattedTitle = title.toLowerCase().replace(/ /g, '-');
+    const formattedTitle = title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '') // Hapus simbol seperti , : "
+    .replace(/\s+/g, '-')        // Ubah spasi (atau spasi ganda) jadi satu dash
+    .trim();
     router.push(`/articles/${formattedTitle}`);
   };
 
