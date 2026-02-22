@@ -3,7 +3,8 @@ import React from "react";
 import { ArrowRight, Star, ShieldCheck, Zap } from "lucide-react";
 
 export default function SectionDivider() {
-  const whatsappNumber = "628157642627";
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "628157642627";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo, saya ingin tanya jasa pembuatan website.")}`;
 
   return (
@@ -15,14 +16,15 @@ export default function SectionDivider() {
 
         <div className="max-w-7xl mx-auto relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
             {/* Sisi Kiri: Narasi */}
             <div className="space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Star size={14} className="text-yellow-400 fill-yellow-400" />
-                <span className="text-gray-300 text-[10px] font-black uppercase tracking-[0.3em]">Top Rated Agency</span>
+                <span className="text-gray-300 text-[10px] font-black uppercase tracking-[0.3em]">
+                  Top Rated Agency
+                </span>
               </div>
-              
+
               <h2 className="text-4xl md:text-6xl font-black text-white italic leading-tight">
                 MENGAPA BISNIS ANDA <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -31,13 +33,22 @@ export default function SectionDivider() {
               </h2>
 
               <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed font-medium mx-auto lg:mx-0">
-                Kami menggabungkan keahlian teknis tingkat tinggi dengan strategi bisnis untuk menciptakan platform digital yang menghasilkan profit.
+                Kami menggabungkan keahlian teknis tingkat tinggi dengan
+                strategi bisnis untuk menciptakan platform digital yang
+                menghasilkan profit.
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <a href={whatsappLink} target="_blank" className="group flex items-center gap-4 bg-white text-[#0a1628] px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-2xl">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  className="group flex items-center gap-4 bg-white text-[#0a1628] px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-2xl"
+                >
                   Hubungi Kami
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-2 transition-transform"
+                  />
                 </a>
               </div>
             </div>
@@ -50,36 +61,42 @@ export default function SectionDivider() {
                     <ShieldCheck size={24} />
                   </div>
                   <div>
-                    <h4 className="font-black text-[#0a1628] italic uppercase text-sm">Terpercaya & Aman</h4>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Enterprise Security</p>
+                    <h4 className="font-black text-[#0a1628] italic uppercase text-sm">
+                      Terpercaya & Aman
+                    </h4>
+                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                      Enterprise Security
+                    </p>
                   </div>
                 </div>
                 <p className="text-gray-500 text-xs leading-relaxed mb-6">
-                  Setiap baris kode yang kami tulis melewati standar audit keamanan ketat untuk menjaga data bisnis Anda tetap aman 24/7.
+                  Setiap baris kode yang kami tulis melewati standar audit
+                  keamanan ketat untuk menjaga data bisnis Anda tetap aman 24/7.
                 </p>
                 <div className="flex gap-2">
                   <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
                     <div className="h-full w-[95%] bg-cyan-500" />
                   </div>
-                  <span className="text-[10px] font-black text-cyan-600">95%</span>
+                  <span className="text-[10px] font-black text-cyan-600">
+                    95%
+                  </span>
                 </div>
               </div>
-              
+
               {/* Floating Badge */}
               <div className="absolute -bottom-10 left-0 bg-orange-500 text-white p-5 rounded-3xl shadow-xl z-40 hidden md:block -rotate-6">
                 <Zap size={24} />
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
       {/* 2. PEMISAH OMBAK (Transition to WhyChooseUs) */}
       <div className="absolute bottom-0 left-0 w-full leading-[0] z-10">
-        <svg 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none" 
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
           className="relative block w-full h-[100px] md:h-[180px]"
           fill="#f8fafc" /* Sesuaikan dengan bg WhyChooseUs (slate-50) */
         >

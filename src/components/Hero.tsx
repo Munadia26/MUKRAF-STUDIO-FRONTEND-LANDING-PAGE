@@ -9,21 +9,25 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [currentStatIndex, setCurrentStatIndex] = useState(0);
-  
+
   // WhatsApp configuration
-  const whatsappNumber = "628157642627";
-  const whatsappMessage = encodeURIComponent("Halo Mukraf! Saya tertarik untuk konsultasi tentang pembuatan website/aplikasi.");
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "628157642627";
+  const whatsappMessage = encodeURIComponent(
+    "Halo Mukraf! Saya tertarik untuk konsultasi tentang pembuatan website/aplikasi.",
+  );
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   // Generate particles
-  const particles = useMemo(() => 
-    [...Array(20)].map(() => ({
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: 5 + Math.random() * 10,
-      delay: Math.random() * 5
-    })), 
-    []
+  const particles = useMemo(
+    () =>
+      [...Array(20)].map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        duration: 5 + Math.random() * 10,
+        delay: Math.random() * 5,
+      })),
+    [],
   );
 
   // Typing effect for tagline
@@ -42,7 +46,7 @@ export default function Hero() {
 
     const type = () => {
       const phrase = phrases[currentPhrase];
-      
+
       if (!isDeleting && currentChar < phrase.length) {
         setTypedText(phrase.substring(0, currentChar + 1));
         currentChar++;
@@ -67,32 +71,33 @@ export default function Hero() {
   }, []);
 
   // Rotating statistics
-  
 
-  
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a1628]"
     >
       {/* Animated Background Grid */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `
               linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
-            animation: 'grid-flow 20s linear infinite'
+            backgroundSize: "60px 60px",
+            animation: "grid-flow 20s linear infinite",
           }}
         />
-        
+
         {/* Glowing Orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "1s" }}
+        />
+
         {/* Floating Particles - Client Side Only */}
         {mounted && (
           <div className="absolute inset-0">
@@ -104,7 +109,7 @@ export default function Hero() {
                   left: `${particle.left}%`,
                   top: `${particle.top}%`,
                   animation: `float ${particle.duration}s ease-in-out infinite`,
-                  animationDelay: `${particle.delay}s`
+                  animationDelay: `${particle.delay}s`,
                 }}
               />
             ))}
@@ -113,23 +118,20 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-     {/* Ubah z-10 menjadi z-30 dan tambahkan pb-44 md:pb-60 */}
-    <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-10 w-full pb-28 md:pb-48">
+      {/* Ubah z-10 menjadi z-30 dan tambahkan pb-44 md:pb-60 */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-10 w-full pb-28 md:pb-48">
         {/* Text Background Besar (Watermark) - Teknik ini sering dipakai Agency Custom */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -z-10 select-none pointer-events-none opacity-[0.02]">
-        <h2 className="text-[20vw] font-black text-white leading-none">
-          MUKRAF
-        </h2>
-      </div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -z-10 select-none pointer-events-none opacity-[0.02]">
+          <h2 className="text-[20vw] font-black text-white leading-none">
+            MUKRAF
+          </h2>
+        </div>
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          
           {/* Left Content */}
           <div className="space-y-8 text-white">
             {/* Badge */}
             <br></br>
             <br></br>
-            
-            
 
             {/* Main Heading */}
             <div className="space-y-4">
@@ -155,12 +157,13 @@ export default function Hero() {
 
             {/* Description */}
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              Solusi kreatif untuk menghadirkan website dan aplikasi mobile yang inovatif, modern, dan berorientasi pada hasil bisnis Anda.
+              Solusi kreatif untuk menghadirkan website dan aplikasi mobile yang
+              inovatif, modern, dan berorientasi pada hasil bisnis Anda.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a 
+              <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -169,26 +172,27 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex items-center justify-center gap-3">
                   <MessageCircle className="w-5 h-5" />
-                  <span className="text-sm uppercase tracking-wider">Konsultasi Gratis</span>
+                  <span className="text-sm uppercase tracking-wider">
+                    Konsultasi Gratis
+                  </span>
                 </div>
               </a>
 
-              <Link 
+              <Link
                 href="#products"
                 className="group px-8 py-5 bg-white/5 border-2 border-white/10 rounded-2xl font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20"
               >
                 <div className="flex items-center justify-center gap-3">
-                  <span className="text-sm uppercase tracking-wider">Lihat Portfolio</span>
+                  <span className="text-sm uppercase tracking-wider">
+                    Lihat Portfolio
+                  </span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/10">
-              
-            </div>
-           
+            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/10"></div>
           </div>
           {/* Floating Badge (Aksen Kecil yang Berpengaruh) */}
           {/* Right Visual */}
@@ -202,33 +206,55 @@ export default function Hero() {
                 {/* Content */}
                 <div className="relative space-y-6">
                   {/* Code Window Mockup */}
-                  
+
                   <div className="bg-[#1e293b] rounded-2xl overflow-hidden shadow-xl">
                     <div className="flex items-center gap-2 px-4 py-3 bg-[#0f172a] border-b border-white/10">
                       <div className="w-3 h-3 rounded-full bg-red-500" />
                       <div className="w-3 h-3 rounded-full bg-yellow-500" />
                       <div className="w-3 h-3 rounded-full bg-green-500" />
-                      <span className="text-xs text-gray-400 ml-2 font-mono">index.tsx</span>
+                      <span className="text-xs text-gray-400 ml-2 font-mono">
+                        index.tsx
+                      </span>
                     </div>
                     <div className="p-6 font-mono text-sm space-y-2">
-                      <div className="text-cyan-400">const <span className="text-white">website</span> = {`{`}</div>
-                      <div className="text-gray-400 ml-4">design: <span className="text-green-400">&quot;premium&quot;</span>,</div>
-                      <div className="text-gray-400 ml-4">performance: <span className="text-green-400">&quot;blazing-fast&quot;</span>,</div>
-                      <div className="text-gray-400 ml-4">responsive: <span className="text-yellow-400">true</span>,</div>
+                      <div className="text-cyan-400">
+                        const <span className="text-white">website</span> ={" "}
+                        {`{`}
+                      </div>
+                      <div className="text-gray-400 ml-4">
+                        design:{" "}
+                        <span className="text-green-400">
+                          &quot;premium&quot;
+                        </span>
+                        ,
+                      </div>
+                      <div className="text-gray-400 ml-4">
+                        performance:{" "}
+                        <span className="text-green-400">
+                          &quot;blazing-fast&quot;
+                        </span>
+                        ,
+                      </div>
+                      <div className="text-gray-400 ml-4">
+                        responsive:{" "}
+                        <span className="text-yellow-400">true</span>,
+                      </div>
                       <div className="text-cyan-400">{`}`};</div>
                     </div>
                   </div>
 
                   {/* Feature Pills */}
                   <div className="flex flex-wrap gap-2">
-                    {['React', 'Next.js', 'TypeScript', 'Tailwind', 'API'].map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300 backdrop-blur-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {["React", "Next.js", "TypeScript", "Tailwind", "API"].map(
+                      (tech) => (
+                        <span
+                          key={tech}
+                          className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300 backdrop-blur-sm"
+                        >
+                          {tech}
+                        </span>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
@@ -240,10 +266,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      
-                    
+
       {/* Floating WhatsApp Button */}
-      <a 
+      <a
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -261,11 +286,11 @@ export default function Hero() {
         <div className="relative">
           {/* Efek Glow & Pulse */}
           <div className="absolute inset-0 bg-green-500 rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity animate-pulse" />
-          
+
           {/* Icon Container dengan Animasi Floating */}
           <div className="relative w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-            <svg 
-              viewBox="0 0 24 24" 
+            <svg
+              viewBox="0 0 24 24"
               className="w-8 h-8 fill-current text-white"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -273,19 +298,19 @@ export default function Hero() {
             </svg>
           </div>
         </div>
-      </a>                    
-    {/* --- BAGIAN WAVE (TRANSISI) --- */}
+      </a>
+      {/* --- BAGIAN WAVE (TRANSISI) --- */}
       {/* Tambahkan pointer-events-none agar tombol di belakangnya bisa diklik */}
-<div className="absolute bottom-0 left-0 w-full leading-[0] z-10 pointer-events-none">
-  <svg 
-    viewBox="0 0 1200 120" 
-    preserveAspectRatio="none" 
-    className="relative block w-full h-[60px] md:h-[120px]"
-    fill="#ffffff" 
-  >
-    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0V0Z"></path>
-  </svg>
-</div>
+      <div className="absolute bottom-0 left-0 w-full leading-[0] z-10 pointer-events-none">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-[60px] md:h-[120px]"
+          fill="#ffffff"
+        >
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0V0Z"></path>
+        </svg>
+      </div>
       <style jsx>{`
         @keyframes grid-flow {
           0% {
@@ -297,7 +322,8 @@ export default function Hero() {
         }
 
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) translateX(0);
             opacity: 0;
           }
@@ -310,7 +336,8 @@ export default function Hero() {
         }
 
         @keyframes pulse-slow {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 0.3;
             transform: scale(1);
           }
