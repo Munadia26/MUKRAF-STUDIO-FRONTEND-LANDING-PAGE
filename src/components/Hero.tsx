@@ -122,7 +122,7 @@ export default function Hero() {
       <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-10 w-full pb-28 md:pb-48">
         {/* Text Background Besar (Watermark) - Teknik ini sering dipakai Agency Custom */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -z-10 select-none pointer-events-none opacity-[0.02]">
-          <h2 className="text-[20vw] font-black text-white leading-none">
+          <h2 className="text-[15vw] md:text-[20vw] font-black text-white leading-none">
             MUKRAF
           </h2>
         </div>
@@ -162,17 +162,17 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl font-bold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-105"
+                className="w-full sm:w-auto group relative px-8 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl font-bold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-105"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex items-center justify-center gap-3">
                   <MessageCircle className="w-5 h-5" />
-                  <span className="text-sm uppercase tracking-wider">
+                  <span className="text-sm uppercase tracking-wider text-center">
                     Konsultasi Gratis
                   </span>
                 </div>
@@ -180,10 +180,10 @@ export default function Hero() {
 
               <Link
                 href="#products"
-                className="group px-8 py-5 bg-white/5 border-2 border-white/10 rounded-2xl font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20"
+                className="w-full sm:w-auto group px-8 py-5 bg-white/5 border-2 border-white/10 rounded-2xl font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20"
               >
                 <div className="flex items-center justify-center gap-3">
-                  <span className="text-sm uppercase tracking-wider">
+                  <span className="text-sm uppercase tracking-wider text-center">
                     Lihat Portfolio
                   </span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

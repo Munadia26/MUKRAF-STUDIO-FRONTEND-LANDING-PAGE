@@ -54,8 +54,8 @@ export default function SectionDivider() {
             </div>
 
             {/* Sisi Kanan: Kartu yang Menyeberang ke Bawah */}
-            <div className="relative h-[250px] lg:h-auto">
-              <div className="absolute top-0 right-0 lg:right-10 w-full max-w-[400px] bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-8 border border-gray-100 transform lg:rotate-3 z-30">
+            <div className="relative mt-8 lg:mt-0 h-auto">
+              <div className="relative lg:absolute top-0 right-0 lg:right-10 mx-auto lg:mx-0 w-full max-w-[400px] bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-8 border border-gray-100 transform lg:rotate-3 z-30">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600">
                     <ShieldCheck size={24} />
@@ -84,7 +84,7 @@ export default function SectionDivider() {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -bottom-10 left-0 bg-orange-500 text-white p-5 rounded-3xl shadow-xl z-40 hidden md:block -rotate-6">
+              <div className="absolute -bottom-10 left-0 lg:left-0 bg-orange-500 text-white p-5 rounded-3xl shadow-xl z-40 hidden md:block -rotate-6">
                 <Zap size={24} />
               </div>
             </div>

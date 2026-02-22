@@ -1,7 +1,13 @@
 "use client";
 import { useArticles } from "@/src/hooks/useArticle";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Clock, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useRef } from "react";
 
 export default function ArticleSection() {
@@ -12,66 +18,81 @@ export default function ArticleSection() {
 
   if (isLoading) return null;
 
+  const createSlug = (text: string) => {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  };
+
   const goToArticleDetail = (title: string) => {
-    const formattedTitle = title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, '') // Hapus simbol seperti , : "
-    .replace(/\s+/g, '-')        // Ubah spasi (atau spasi ganda) jadi satu dash
-    .trim();
+    const formattedTitle = createSlug(title);
     router.push(`/articles/${formattedTitle}`);
   };
 
   const goToAllArticles = () => {
-    router.push('/articles');
+    router.push("/articles");
   };
 
   // Scroll functions
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({ left: -400, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({ left: 400, behavior: "smooth" });
     }
   };
 
   // Format date helper
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('id-ID', { 
-      day: 'numeric', 
-      month: 'long', 
-      year: 'numeric' 
+    return date.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     });
   };
 
   // Strip HTML tags for preview
   const stripHtml = (html: string) => {
-    if (typeof window === 'undefined') return '';
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    const text = tmp.textContent || tmp.innerText || '';
-    return text.replace(/\s+/g, ' ').trim();
+    if (typeof document === "undefined" || !html) return "";
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    const decoded = txt.value;
+
+    const tmp = document.createElement("div");
+    tmp.innerHTML = decoded;
+    const text = tmp.textContent || tmp.innerText || "";
+    return text.replace(/\s+/g, " ").trim();
   };
 
   // Urutkan artikel berdasarkan tanggal terbaru dan ambil max 6
   const sortedArticles = articles
     ? [...articles]
-        .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        .sort(
+          (a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        )
         .slice(0, 6)
     : [];
 
   const showNavigation = sortedArticles && sortedArticles.length > 3;
 
   return (
-    <section id="articles" className="py-10 md:py-20 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 relative overflow-hidden">
+    <section
+      id="articles"
+      className="py-10 md:py-20 bg-gradient-to-br from-slate-50 via-white to-cyan-50/30 relative overflow-hidden"
+    >
       {/* Background Decorative Elements */}
       <div className="absolute top-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-4 md:gap-6">
@@ -86,8 +107,8 @@ export default function ArticleSection() {
               Artikel Terbaru
             </h2>
           </div>
-          
-          <button 
+
+          <button
             onClick={goToAllArticles}
             className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full font-bold text-xs md:text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105 w-full md:w-auto justify-center"
           >
@@ -138,39 +159,40 @@ export default function ArticleSection() {
           {/* Scrollable Articles */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 md:gap-8 overflow-x-auto scroll-smooth scrollbar-hide pb-4 snap-x snap-mandatory"
+            className="flex gap-4 md:gap-8 overflow-x-auto scroll-smooth scrollbar-hide pb-8 snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0"
             style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
             }}
           >
             {sortedArticles.map((article: any, index: number) => (
-              <article 
+              <article
                 key={article.id}
                 onClick={() => goToArticleDetail(article.title)}
-                className="group cursor-pointer flex-shrink-0 w-[90vw] sm:w-[85vw] md:w-[calc(33.333%-1.5rem)] md:min-w-[320px] lg:min-w-[350px] snap-center first:ml-0 last:mr-0"
+                className="group cursor-pointer flex-shrink-0 w-[85vw] sm:w-[320px] md:w-[calc(33.333%-1.5rem)] md:min-w-[320px] lg:min-w-[350px] snap-center md:snap-start first:ml-0 last:mr-0"
               >
                 {/* Card Container */}
                 <div className="h-full bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
-                  
                   {/* Image Container */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                    <img 
-                      src={`${IMG_URL}/${article.image}`} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    <img
+                      src={`${IMG_URL}/${article.image}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       alt={article.title}
                     />
-                    
+
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     {/* New Badge untuk artikel terbaru (index 0) */}
                     {index === 0 && (
                       <div className="absolute top-3 md:top-5 right-3 md:right-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg">
-                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Terbaru</span>
+                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                          Terbaru
+                        </span>
                       </div>
                     )}
-                    
+
                     {/* Category Badge */}
                     {article.category && (
                       <div className="absolute top-3 md:top-5 left-3 md:left-5 bg-white/95 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg">
@@ -188,8 +210,15 @@ export default function ArticleSection() {
                       {article.createdAt && (
                         <div className="flex items-center gap-1 md:gap-1.5">
                           <Calendar className="w-3 md:w-3.5 h-3 md:h-3.5" />
-                          <span className="hidden sm:inline">{formatDate(article.createdAt)}</span>
-                          <span className="sm:hidden">{new Date(article.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</span>
+                          <span className="hidden sm:inline">
+                            {formatDate(article.createdAt)}
+                          </span>
+                          <span className="sm:hidden">
+                            {new Date(article.createdAt).toLocaleDateString(
+                              "id-ID",
+                              { day: "numeric", month: "short" },
+                            )}
+                          </span>
                         </div>
                       )}
                       {article.readTime && (
@@ -219,6 +248,8 @@ export default function ArticleSection() {
                 </div>
               </article>
             ))}
+            {/* Spacer for mobile scroll ending */}
+            <div className="w-1 flex-shrink-0 md:hidden"></div>
           </div>
         </div>
 
@@ -226,11 +257,23 @@ export default function ArticleSection() {
         {(!sortedArticles || sortedArticles.length === 0) && (
           <div className="text-center py-20">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
-              <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <svg
+                className="w-10 h-10 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Belum Ada Artikel</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Belum Ada Artikel
+            </h3>
             <p className="text-gray-500">Artikel baru akan segera hadir</p>
           </div>
         )}
