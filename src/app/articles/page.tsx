@@ -14,9 +14,18 @@ export default function AllArticlesPage() {
   const whatsappNumber =
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "628157642627";
 
+  const createSlug = (text: string) => {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  };
+
   // Navigasi ke detail
   const goToArticleDetail = (title: string) => {
-    const formattedTitle = title.toLowerCase().replace(/ /g, "-");
+    const formattedTitle = createSlug(title);
     router.push(`/articles/${formattedTitle}`);
   };
 
@@ -35,9 +44,13 @@ export default function AllArticlesPage() {
   };
 
   const stripHtml = (html: string) => {
-    if (typeof window === "undefined") return html;
+    if (typeof document === "undefined" || !html) return html || "";
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    const decoded = txt.value;
+
     const tmp = document.createElement("div");
-    tmp.innerHTML = html;
+    tmp.innerHTML = decoded;
     return tmp.textContent || tmp.innerText || "";
   };
 

@@ -30,9 +30,13 @@ export default function AllProductsPage() {
   });
 
   const stripHtml = (html: string) => {
-    if (typeof window === "undefined" || !html) return "";
+    if (typeof document === "undefined" || !html) return "";
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    const decoded = txt.value;
+
     const tmp = document.createElement("div");
-    tmp.innerHTML = html;
+    tmp.innerHTML = decoded;
     return tmp.textContent || tmp.innerText || "";
   };
 
