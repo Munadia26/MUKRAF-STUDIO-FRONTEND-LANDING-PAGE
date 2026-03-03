@@ -63,7 +63,7 @@ export default function ArticleDetailPage() {
                 {article.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-gray-400 font-bold text-[10px] uppercase tracking-widest">
+              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-gray-400 font-bold text-xs uppercase tracking-widest">
                 <div className="flex items-center gap-2">
                   <Calendar size={14} className="text-cyan-500" />
                   <span>
@@ -87,7 +87,7 @@ export default function ArticleDetailPage() {
                 href={`https://wa.me/628157642627?text=${encodeURIComponent(`Halo Mukraf`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 text-center flex items-center justify-center gap-3 group relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]"
+                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 text-center flex items-center justify-center gap-3 group relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]"
               >
                 <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                 <svg
@@ -156,7 +156,7 @@ export default function ArticleDetailPage() {
               <div className="w-full mt-12 md:mt-16 pt-8 border-t border-gray-100">
                 <Link
                   href="/articles"
-                  className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#1e3a5f] hover:text-cyan-500 transition-all"
+                  className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-widest text-[#1e3a5f] hover:text-cyan-500 transition-all"
                 >
                   <ChevronLeft size={18} />
                   Kembali ke Katalog Artikel

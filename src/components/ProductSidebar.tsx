@@ -24,7 +24,7 @@ export default function ProductSidebar({ activeSlug }: { activeSlug: string }) {
           placeholder="CARI PROJECT..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full bg-white border border-gray-200 focus:border-cyan-500 rounded-2xl px-6 py-5 pl-14 text-[10px] font-black tracking-widest text-[#1e3a5f] outline-none transition-all shadow-sm"
+          className="w-full bg-white border border-gray-200 focus:border-cyan-500 rounded-2xl px-6 py-5 pl-14 text-xs font-black tracking-widest text-[#1e3a5f] outline-none transition-all shadow-sm"
         />
         <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-500 transition-colors" size={18} />
       </div>
@@ -32,13 +32,13 @@ export default function ProductSidebar({ activeSlug }: { activeSlug: string }) {
       {/* Project List */}
       <div className="bg-white rounded-[2.5rem] border border-gray-100 p-8 shadow-sm">
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-[10px] font-black text-[#1e3a5f] uppercase tracking-[0.3em]">Project Lainnya</h3>
+          <h3 className="text-xs font-black text-[#1e3a5f] uppercase tracking-[0.3em]">Project Lainnya</h3>
           <LayoutGrid size={14} className="text-cyan-500" />
         </div>
 
         <div className="space-y-4 max-h-[450px] overflow-y-auto pr-2 custom-scrollbar">
           {isLoading ? (
-            <p className="text-[10px] font-bold text-gray-400 text-center animate-pulse">LOADING...</p>
+            <p className="text-xs font-bold text-gray-400 text-center animate-pulse">LOADING...</p>
           ) : (
             filtered.map((p: any) => (
               <Link 
@@ -58,10 +58,10 @@ export default function ProductSidebar({ activeSlug }: { activeSlug: string }) {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className={`text-[9px] font-black uppercase tracking-tight truncate ${activeSlug === p.slug ? "text-cyan-600" : "text-[#1e3a5f]"}`}>
+                  <p className={`text-xs font-black uppercase tracking-tight truncate ${activeSlug === p.slug ? "text-cyan-600" : "text-[#1e3a5f]"}`}>
                     {p.title}
                   </p>
-                  <p className="text-[8px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                  <p className="text-xs text-xs md:text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">
                     {p.category?.name || "Portfolio"}
                   </p>
                 </div>
@@ -71,7 +71,7 @@ export default function ProductSidebar({ activeSlug }: { activeSlug: string }) {
           )}
 
           {!isLoading && filtered.length === 0 && (
-            <p className="text-[10px] font-bold text-gray-400 text-center py-4">TIDAK DITEMUKAN</p>
+            <p className="text-xs font-bold text-gray-400 text-center py-4">TIDAK DITEMUKAN</p>
           )}
         </div>
       </div>

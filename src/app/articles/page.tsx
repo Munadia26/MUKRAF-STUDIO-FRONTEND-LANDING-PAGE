@@ -70,7 +70,7 @@ export default function AllArticlesPage() {
               <div className="space-y-6 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-3">
                   <span className="h-px w-8 bg-cyan-500"></span>
-                  <div className="flex items-center gap-2 text-[10px] font-black text-cyan-400 uppercase tracking-[0.4em]">
+                  <div className="flex items-center gap-2 text-xs font-black text-cyan-400 uppercase tracking-[0.4em]">
                     <span>Insight</span>
                     <span className="text-white/20">/</span>
                     <span>Artikel & Berita</span>
@@ -97,7 +97,7 @@ export default function AllArticlesPage() {
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo Mukraf! Saya tertarik untuk konsultasi tentang pembuatan website/aplikasi.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-[10px] uppercase tracking-widest transition-all text-center flex items-center justify-center gap-3 group relative overflow-hidden"
+                    className="px-8 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-xs uppercase tracking-widest transition-all text-center flex items-center justify-center gap-3 group relative overflow-hidden"
                   >
                     <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                     <svg
@@ -164,7 +164,7 @@ export default function AllArticlesPage() {
                         alt={article.title}
                       />
                       <div className="absolute top-5 left-5">
-                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-[#1e3a5f] shadow-sm flex items-center gap-2">
+                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-widest text-[#1e3a5f] shadow-sm flex items-center gap-2">
                           <Tag size={12} className="text-cyan-500" />
                           Insight
                         </span>
@@ -172,7 +172,7 @@ export default function AllArticlesPage() {
                     </div>
 
                     <div className="p-8 space-y-4">
-                      <div className="flex items-center gap-4 text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">
+                      <div className="flex items-center gap-4 text-xs font-black text-gray-400 uppercase tracking-[0.2em]">
                         <div className="flex items-center gap-1.5">
                           <Calendar size={12} className="text-cyan-500" />
                           <span>{formatDate(article.createdAt)}</span>
@@ -187,7 +187,7 @@ export default function AllArticlesPage() {
                         {stripHtml(article.description)}
                       </p>
 
-                      <div className="pt-2 flex items-center gap-2 text-cyan-600 font-black text-[10px] uppercase tracking-widest group-hover:gap-5 transition-all">
+                      <div className="pt-2 flex items-center gap-2 text-cyan-600 font-black text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
                         <span>Baca Selengkapnya</span>
                         <ArrowRight size={14} />
                       </div>

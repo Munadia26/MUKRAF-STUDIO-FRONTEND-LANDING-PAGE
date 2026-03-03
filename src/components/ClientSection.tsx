@@ -13,31 +13,36 @@ export default function ClientSection() {
         {/* Teks Heading sesuai gambar referensi */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-medium text-slate-500">
-            Yang Telah <span className="font-black text-[#1e3a5f] uppercase italic">Percaya Kami</span>
+            Yang Telah{" "}
+            <span className="font-black text-[#1e3a5f] uppercase italic">
+              Percaya Kami
+            </span>
           </h2>
         </div>
 
         {/* 2. Container Marquee untuk animasi bergerak satu baris */}
-        <div className="relative flex overflow-hidden">
+        <div className="relative overflow-hidden">
           {/* Efek Fade di kiri dan kanan */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           {/* Marquee Track */}
-          <div className="flex gap-12 md:gap-16 marquee-track items-center py-6">
+          <div className="flex w-max marquee-track items-center py-6">
             {/* 3. Render data member dari API */}
             {isLoading ? (
-              <p className="text-gray-400 font-bold tracking-widest animate-pulse">LOADING CLIENTS...</p>
+              <p className="text-gray-400 font-bold tracking-widest animate-pulse">
+                LOADING CLIENTS...
+              </p>
             ) : (
               <>
                 {/* First set */}
                 {(members || []).map((member: any, index: number) => (
-                  <div 
-                    key={`first-${index}`} 
-                    className="shrink-0 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  <div
+                    key={`first-${index}`}
+                    className="shrink-0 flex items-center justify-center px-6 md:px-8 hover:scale-110 transition-transform duration-300 cursor-pointer"
                   >
-                    <img 
-                      src={`${IMG_URL}/${member.image}`} 
+                    <img
+                      src={`${IMG_URL}/${member.image}`}
                       alt={member.name || "Client Logo"}
                       className="w-32 md:w-40 lg:w-48 h-auto object-contain"
                     />
@@ -45,13 +50,13 @@ export default function ClientSection() {
                 ))}
                 {/* Duplicate set for seamless loop */}
                 {(members || []).map((member: any, index: number) => (
-                  <div 
-                    key={`second-${index}`} 
-                    className="shrink-0 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  <div
+                    key={`second-${index}`}
+                    className="shrink-0 flex items-center justify-center px-6 md:px-8 hover:scale-110 transition-transform duration-300 cursor-pointer"
                     aria-hidden="true"
                   >
-                    <img 
-                      src={`${IMG_URL}/${member.image}`} 
+                    <img
+                      src={`${IMG_URL}/${member.image}`}
                       alt={member.name || "Client Logo"}
                       className="w-32 md:w-40 lg:w-48 h-auto object-contain"
                     />

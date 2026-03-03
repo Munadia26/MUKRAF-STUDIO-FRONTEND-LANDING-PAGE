@@ -52,7 +52,7 @@ export default function ProductDetailPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <span className="h-px w-8 bg-cyan-500"></span>
-                  <div className="flex items-center gap-2 text-[10px] font-black text-cyan-400 uppercase tracking-[0.4em]">
+                  <div className="flex items-center gap-2 text-xs font-black text-cyan-400 uppercase tracking-[0.4em]">
                     <span>Portofolio</span>
                     <span className="text-white/20">/</span>
                     <span>{product.category?.name}</span>
@@ -75,7 +75,7 @@ export default function ProductDetailPage() {
                   href={`https://wa.me/628157642627?text=${encodeURIComponent(`Halo Mukraf, saya ingin konsultasi mengenai project: ${product.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-10 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-300 text-center flex items-center justify-center gap-3 group relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]"
+                  className="w-full sm:w-auto px-10 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 text-center flex items-center justify-center gap-3 group relative overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]"
                 >
                   <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                   <svg
@@ -111,7 +111,7 @@ export default function ProductDetailPage() {
               {/* Info Project */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-8 py-10 mt-6 border-b border-gray-100">
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest block">
+                  <span className="text-xs font-black text-gray-400 uppercase tracking-widest block">
                     Client Service
                   </span>
                   <p className="text-sm font-bold text-[#1e3a5f] uppercase italic">
@@ -119,7 +119,7 @@ export default function ProductDetailPage() {
                   </p>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest block">
+                  <span className="text-xs font-black text-gray-400 uppercase tracking-widest block">
                     Project Link
                   </span>
                   {product.link ? (
@@ -153,7 +153,7 @@ export default function ProductDetailPage() {
 
                 <Link
                   href="/#products"
-                  className="group inline-flex items-center gap-3 text-[#1e3a5f] font-black uppercase tracking-widest text-[10px] mt-12 hover:text-cyan-500 transition-all"
+                  className="group inline-flex items-center gap-3 text-[#1e3a5f] font-black uppercase tracking-widest text-xs mt-12 hover:text-cyan-500 transition-all"
                 >
                   <ChevronLeft
                     size={16}

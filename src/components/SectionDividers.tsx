@@ -20,7 +20,7 @@ export default function SectionDivider() {
             <div className="space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Star size={14} className="text-yellow-400 fill-yellow-400" />
-                <span className="text-gray-300 text-[10px] font-black uppercase tracking-[0.3em]">
+                <span className="text-gray-300 text-xs font-black uppercase tracking-[0.3em]">
                   Top Rated Agency
                 </span>
               </div>
@@ -42,7 +42,7 @@ export default function SectionDivider() {
                 <a
                   href={whatsappLink}
                   target="_blank"
-                  className="group flex items-center gap-4 bg-white text-[#0a1628] px-8 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-2xl"
+                  className="group flex items-center gap-4 bg-white text-[#0a1628] px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-2xl"
                 >
                   Hubungi Kami
                   <ArrowRight
@@ -64,7 +64,7 @@ export default function SectionDivider() {
                     <h4 className="font-black text-[#0a1628] italic uppercase text-sm">
                       Terpercaya & Aman
                     </h4>
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                    <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">
                       Enterprise Security
                     </p>
                   </div>
@@ -77,7 +77,7 @@ export default function SectionDivider() {
                   <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
                     <div className="h-full w-[95%] bg-cyan-500" />
                   </div>
-                  <span className="text-[10px] font-black text-cyan-600">
+                  <span className="text-xs font-black text-cyan-600">
                     95%
                   </span>
                 </div>
