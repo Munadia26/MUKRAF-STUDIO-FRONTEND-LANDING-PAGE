@@ -99,7 +99,7 @@ export default function ArticleSection() {
           <div className="space-y-3 md:space-y-4 w-full md:w-auto">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="h-px w-8 md:w-12 bg-gradient-to-r from-cyan-500 to-blue-600"></div>
-              <span className="text-[10px] md:text-xs font-bold text-cyan-600 uppercase tracking-[0.2em] md:tracking-[0.3em]">
+              <span className="text-xs md:text-xs font-bold text-cyan-600 uppercase tracking-[0.2em] md:tracking-[0.3em]">
                 Insights & Stories
               </span>
             </div>
@@ -187,7 +187,7 @@ export default function ArticleSection() {
                     {/* New Badge untuk artikel terbaru (index 0) */}
                     {index === 0 && (
                       <div className="absolute top-3 md:top-5 right-3 md:right-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg">
-                        <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                        <span className="text-xs md:text-xs font-bold uppercase tracking-wider">
                           Terbaru
                         </span>
                       </div>
@@ -196,7 +196,7 @@ export default function ArticleSection() {
                     {/* Category Badge */}
                     {article.category && (
                       <div className="absolute top-3 md:top-5 left-3 md:left-5 bg-white/95 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg">
-                        <span className="text-[10px] md:text-xs font-bold text-cyan-600 uppercase tracking-wider">
+                        <span className="text-xs md:text-xs font-bold text-cyan-600 uppercase tracking-wider">
                           {article.category}
                         </span>
                       </div>
@@ -206,7 +206,7 @@ export default function ArticleSection() {
                   {/* Content */}
                   <div className="p-5 md:p-7 space-y-3 md:space-y-4">
                     {/* Meta Info */}
-                    <div className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs text-gray-500">
+                    <div className="flex items-center gap-3 md:gap-4 text-xs md:text-xs text-gray-500">
                       {article.createdAt && (
                         <div className="flex items-center gap-1 md:gap-1.5">
                           <Calendar className="w-3 md:w-3.5 h-3 md:h-3.5" />

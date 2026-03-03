@@ -96,7 +96,7 @@ export default function ProductSection() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-4 md:gap-6">
             <div className="space-y-1 md:space-y-2 w-full md:w-auto">
-              <h2 className="text-[10px] font-black text-cyan-500 uppercase tracking-[0.3em] md:tracking-[0.4em]">
+              <h2 className="text-xs font-black text-cyan-500 uppercase tracking-[0.3em] md:tracking-[0.4em]">
                 Portfolio
               </h2>
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e3a5f] uppercase tracking-tighter italic">
@@ -107,7 +107,7 @@ export default function ProductSection() {
             <div className="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto scrollbar-hide">
               <button
                 onClick={() => setActiveCat("all")}
-                className={`px-4 md:px-6 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-all duration-300 ${activeCat === "all" ? "bg-[#1e3a5f] text-white shadow-lg shadow-blue-900/20" : "bg-white text-gray-500"}`}
+                className={`px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-xs font-bold uppercase tracking-widest whitespace-nowrap transition-all duration-300 ${activeCat === "all" ? "bg-[#1e3a5f] text-white shadow-lg shadow-blue-900/20" : "bg-white text-gray-500"}`}
               >
                 All
               </button>
@@ -115,7 +115,7 @@ export default function ProductSection() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCat(cat.id.toString())}
-                  className={`px-4 md:px-6 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-all duration-300 ${activeCat === cat.id.toString() ? "bg-[#1e3a5f] text-white" : "bg-white text-gray-500"}`}
+                  className={`px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-xs font-bold uppercase tracking-widest whitespace-nowrap transition-all duration-300 ${activeCat === cat.id.toString() ? "bg-[#1e3a5f] text-white" : "bg-white text-gray-500"}`}
                 >
                   {cat.name}
                 </button>
@@ -179,7 +179,7 @@ export default function ProductSection() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           alt={p.title}
                         />
-                        <div className="absolute top-3 md:top-4 left-3 md:left-4 bg-cyan-500 text-white px-2.5 md:px-3 py-1 rounded-full text-[8px] md:text-[9px] font-black uppercase tracking-wider">
+                        <div className="absolute top-3 md:top-4 left-3 md:left-4 bg-cyan-500 text-white px-2.5 md:px-3 py-1 rounded-full text-xs text-xs md:text-xs md:text-xs font-black uppercase tracking-wider">
                           {p.category?.name || "Project"}
                         </div>
                         {images.length > 1 && (
@@ -214,7 +214,7 @@ export default function ProductSection() {
                             ? stripHtml(p.description)
                             : "Solusi kreatif digital."}
                         </p>
-                        <div className="pt-1 md:pt-2 flex items-center gap-2 text-cyan-600 font-bold text-[10px] md:text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                        <div className="pt-1 md:pt-2 flex items-center gap-2 text-cyan-600 font-bold text-xs md:text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
                           <span>Lihat Detail</span>
                           <ChevronRight size={14} className="md:w-4 md:h-4" />
                         </div>
@@ -232,7 +232,7 @@ export default function ProductSection() {
           <div className="mt-12 md:mt-16 flex justify-center px-4">
             <button
               onClick={() => router.push("/products")}
-              className="group flex items-center gap-3 md:gap-4 px-6 md:px-10 py-3.5 md:py-5 bg-[#1e3a5f] text-white rounded-full md:rounded-[2rem] text-[10px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] shadow-xl hover:bg-cyan-600 transition-all active:scale-95 w-full md:w-auto justify-center"
+              className="group flex items-center gap-3 md:gap-4 px-6 md:px-10 py-3.5 md:py-5 bg-[#1e3a5f] text-white rounded-full md:rounded-[2rem] text-xs md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] shadow-xl hover:bg-cyan-600 transition-all active:scale-95 w-full md:w-auto justify-center"
             >
               Lihat Semua Produk
               <ArrowRight

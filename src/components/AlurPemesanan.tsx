@@ -69,7 +69,7 @@ export default function OrderingProcess() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-[10px] font-black text-cyan-500 uppercase tracking-[0.4em]">
+          <h2 className="text-xs font-black text-cyan-500 uppercase tracking-[0.4em]">
             Cara Pemesanan
           </h2>
           <h3 className="text-4xl md:text-6xl font-black text-[#1e3a5f] uppercase tracking-tighter italic">

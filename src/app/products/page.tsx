@@ -56,7 +56,7 @@ export default function AllProductsPage() {
               <div className="space-y-6 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-3">
                   <span className="h-px w-8 bg-cyan-500"></span>
-                  <div className="flex items-center gap-2 text-[10px] font-black text-cyan-400 uppercase tracking-[0.4em]">
+                  <div className="flex items-center gap-2 text-xs font-black text-cyan-400 uppercase tracking-[0.4em]">
                     <span>Katalog</span>
                     <span className="text-white/20">/</span>
                     <span>Portofolio</span>
@@ -83,7 +83,7 @@ export default function AllProductsPage() {
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo Mukraf, saya ingin konsultasi mengenai project di katalog.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-[10px] uppercase tracking-widest transition-all text-center flex items-center justify-center gap-3 group relative overflow-hidden"
+                    className="px-8 py-5 bg-cyan-500/10 hover:bg-cyan-500/20 border-2 border-cyan-500/30 hover:border-cyan-400 text-white rounded-full font-black text-xs uppercase tracking-widest transition-all text-center flex items-center justify-center gap-3 group relative overflow-hidden"
                   >
                     {/* Efek kilauan saat hover */}
                     <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -123,7 +123,7 @@ export default function AllProductsPage() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 order-2 lg:order-1">
                 <button
                   onClick={() => setActiveCat("all")}
-                  className={`px-8 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${
+                  className={`px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-300 border ${
                     activeCat === "all"
                       ? "bg-[#0a1628] text-white border-[#0a1628] shadow-xl scale-105"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:border-gray-300"
@@ -136,7 +136,7 @@ export default function AllProductsPage() {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCat(cat.id.toString())}
-                    className={`px-8 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${
+                    className={`px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-300 border ${
                       activeCat === cat.id.toString()
                         ? "bg-[#0a1628] text-white border-[#0a1628] shadow-xl scale-105"
                         : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:border-gray-300"
@@ -191,7 +191,7 @@ export default function AllProductsPage() {
                         alt={p.title}
                       />
                       <div className="absolute top-5 left-5">
-                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-[#1e3a5f] shadow-sm flex items-center gap-2">
+                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-widest text-[#1e3a5f] shadow-sm flex items-center gap-2">
                           <Tag size={12} className="text-cyan-500" />
                           {p.category?.name || "Uncategorized"}
                         </span>
@@ -207,7 +207,7 @@ export default function AllProductsPage() {
                           ? stripHtml(p.description)
                           : "Solusi inovatif untuk kebutuhan bisnis Anda."}
                       </p>
-                      <div className="pt-2 flex items-center gap-2 text-cyan-600 font-black text-[10px] uppercase tracking-widest group-hover:gap-5 transition-all">
+                      <div className="pt-2 flex items-center gap-2 text-cyan-600 font-black text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
                         <span>Lihat Detail</span>
                         <ArrowRight size={14} />
                       </div>

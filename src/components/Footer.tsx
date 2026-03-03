@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[9px] font-black uppercase tracking-[0.3em] text-cyan-400 mb-6">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-cyan-400 mb-6">
               Navigasi
             </h4>
             <ul className="space-y-3">
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-[9px] font-black uppercase tracking-[0.3em] text-cyan-400 mb-6">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-cyan-400 mb-6">
               Hubungi Kami
             </h4>
             <div className="space-y-4">
@@ -100,11 +100,11 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-[0.3em]">
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.3em]">
             © {currentYear} {data?.name?.toUpperCase() || "MUKRAF"} STUDIO • ALL
             RIGHTS RESERVED
           </p>
-          <div className="flex gap-6 text-[8px] font-black uppercase tracking-widest text-gray-500">
+          <div className="flex gap-6 text-xs text-xs md:text-xs font-black uppercase tracking-widest text-gray-500">
             <Link href="#" className="hover:text-white">
               Privacy Policy
             </Link>

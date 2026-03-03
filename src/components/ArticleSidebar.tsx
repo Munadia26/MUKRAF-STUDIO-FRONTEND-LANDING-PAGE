@@ -19,7 +19,7 @@ export default function ArticleSidebar({ activeTitle }: { activeTitle: string })
     <div className="space-y-10 sticky top-32">
       {/* Search Widget */}
       <div className="bg-gray-50 p-8 rounded-[2rem] border border-gray-100">
-        <h4 className="text-[10px] font-black uppercase text-[#1e3a5f] mb-4 tracking-widest">Cari Artikel</h4>
+        <h4 className="text-xs font-black uppercase text-[#1e3a5f] mb-4 tracking-widest">Cari Artikel</h4>
         <div className="relative">
           <input 
             type="text"
@@ -34,7 +34,7 @@ export default function ArticleSidebar({ activeTitle }: { activeTitle: string })
 
       {/* Berita Lainnya Widget */}
       <div className="space-y-6">
-        <h4 className="text-[10px] font-black uppercase text-[#1e3a5f] px-2 tracking-widest">Artikel Lainnya</h4>
+        <h4 className="text-xs font-black uppercase text-[#1e3a5f] px-2 tracking-widest">Artikel Lainnya</h4>
         <div className="grid gap-6">
           {filteredArticles.length > 0 ? (
             filteredArticles.map((item: any) => (
@@ -51,10 +51,10 @@ export default function ArticleSidebar({ activeTitle }: { activeTitle: string })
                   />
                 </div>
                 <div className="space-y-1">
-                  <h5 className="text-[11px] font-black text-[#1e3a5f] uppercase italic line-clamp-2 leading-tight group-hover:text-cyan-600 transition-colors">
+                  <h5 className="text-sm font-black text-[#1e3a5f] uppercase italic line-clamp-2 leading-tight group-hover:text-cyan-600 transition-colors">
                     {item.title}
                   </h5>
-                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-gray-400">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400">
                     <Calendar size={10} className="text-cyan-500" />
                     <span>{new Date(item.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</span>
                   </div>
@@ -62,7 +62,7 @@ export default function ArticleSidebar({ activeTitle }: { activeTitle: string })
               </Link>
             ))
           ) : (
-            <p className="text-[10px] italic text-gray-400 px-2">Tidak ada artikel lain ditemukan.</p>
+            <p className="text-xs italic text-gray-400 px-2">Tidak ada artikel lain ditemukan.</p>
           )}
         </div>
       </div>
